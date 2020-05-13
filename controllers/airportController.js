@@ -2,7 +2,7 @@ const Airports = require('../models/Airport');
 
 const airportCon = {
   /**
-   * @desc  Get all airport routes from mongoDB
+   * @desc  Get all airport routes
    * @route GET /airport
    * **/
   async getAirport(req, res, next) {
