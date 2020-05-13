@@ -2,10 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
-// Students Model
-// const Students = require('./models/Students');
-const Airports = require('./models/Airport');
-
 // Load env variables
 dotenv.config({ path: './config/config.env' });
 
@@ -17,28 +13,11 @@ const app = express();
 // Body parser
 app.use(express.json());
 
-// Retrieves all airport from mongoDB
-app.get('/airport', (req, res) => {
-  Airports.find().then((airport) => {
-    res.send({
-      success: true,
-      airport: airport,
-    });
-  });
-});
+// Import Routes
+const airportRoutes = require('./routers/airportRoutes');
 
-// Create a airport in mongoDB
-app.post('/airport', (req, res, next) => {
-  // TODO: Error check for duplicates
-  //  Airports.findOne({ airport: req.body });
-
-  Airports.create(req.body).then((airport) => {
-    res.send({
-      success: true,
-      airport: airport,
-    });
-  });
-});
+// Mount routes
+app.use('/airport', airportRoutes);
 
 const PORT = process.env.PORT || 8000;
 
