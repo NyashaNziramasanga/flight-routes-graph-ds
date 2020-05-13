@@ -15,9 +15,11 @@ app.use(express.json());
 
 // Import Routes
 const airportRoutes = require('./routers/airportRoutes');
+const routesRoutes = require('./routers/routesRoutes');
 
 // Mount routes
 app.use('/airport', airportRoutes);
+app.use('/routes', routesRoutes);
 
 const PORT = process.env.PORT || 8000;
 
