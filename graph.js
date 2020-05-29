@@ -4,7 +4,7 @@
 
 // List of airports
 const airports = 'MEL SYD HBA ADL PER DRW'.split(' ');
-console.log(airports);
+
 // List of routes
 const routes = [
   ['MEL', 'ADL'],
@@ -39,7 +39,7 @@ airports.forEach(addNode);
 routes.forEach((route) => addEdge(...route));
 
 // Show Adjacency list in console
-console.log('Graph', adjacencyList);
+// console.log('Graph', adjacencyList);
 
 /**
  * @desc  Breath First Search Algorithm
@@ -80,7 +80,7 @@ const bfs = (startAirport, searchAirport) => {
   }
 };
 // Run breath first search
-// bfs('SYD', 'MEL');
+bfs('SYD', 'MEL');
 
 /**
  * @desc  Depth First Search Algorithm
